@@ -24,6 +24,7 @@ SRC = push_swap.c \
 	init.c \
 	sort_utils.c \
 	stack_utils.c \
+	stack.c \
 	sort.c \
 	reverse_rotate.c \
 	rotate.c \

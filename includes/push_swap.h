@@ -24,16 +24,21 @@ typedef struct s_stack
 
 void	exit_error(void *ptr, void *ptr2);
 int		validate_args(int argc, char **argv);
-int		*init_array(int argc, char **argv);
+
 void	print_array(int *array, size_t size);
+int		*init_array(int argc, char **argv);
 void	coord_compression(int *array, size_t size);
+
 t_stack	*head_node(void);
 void	add_tail(t_stack *head, t_stack *node);
 void	free_all(t_stack *head);
 t_stack	*init_stack(int argc, int *array);
-size_t	get_stack_size(t_stack *t_stack);
-size_t	is_sorted(t_stack *stack);
 
+size_t	get_stack_size(t_stack *t_stack);
+int		get_max_from_stack(t_stack *stack);
+int		get_min_from_stack(t_stack *stack);
+
+size_t	is_sorted(t_stack *stack);
 void	sort_under_three(t_stack *stack_a);
 
 void	sa(t_stack *stack_a);

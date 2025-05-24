@@ -12,51 +12,6 @@
 
 #include "push_swap.h"
 
-t_stack	*head_node(void)
-{
-	t_stack *head;
-
-	head = (t_stack *)malloc(sizeof(t_stack));
-	if (!head)
-		return (NULL);
-	head->next = head;
-	head->prev = head;
-	head->index = 0;
-	return (head);
-}
-
-void	add_tail(t_stack *head, t_stack *node)
-{
-	t_stack	*tmp;
-
-	if (!node)
-		return ;
-	tmp = head;
-	while (tmp->next != head)
-		tmp = tmp->next;
-	node->prev = tmp;
-	node->next = head;
-	tmp->next = node;
-	head->prev = node;
-}
-
-void	free_all(t_stack *head)
-{
-	t_stack	*tmp;
-	t_stack	*tmp2;
-
-	if (!head)
-		return ;
-	tmp = head->next;
-	while (tmp != head)
-	{
-		tmp2 = tmp;
-		tmp = tmp->next;
-		free(tmp2);
-	}
-	free(head);
-}
-
 size_t	get_stack_size(t_stack *stack)
 {
 	size_t	i;
@@ -73,6 +28,39 @@ size_t	get_stack_size(t_stack *stack)
 	}
 	return (i);
 }
+
+int	get_max_from_stack(t_stack *stack)
+{
+	int		max;
+	t_stack *current;
+
+	max = 0;
+	current = stack->next;
+	while (current != stack)
+	{
+		if (max < current->index)
+			max = current->index;
+		current = current->next;
+	}
+	return (max);
+}
+
+int	get_min_from_stack(t_stack *stack)
+{
+	int		min;
+	t_stack *current;
+
+	min = 0;
+	current = stack->next;
+	while (current != stack)
+	{
+		if (min > current->index)
+			min = current->index;
+		current = current->next;
+	}
+	return (min);
+}
+
 
 // #include <assert.h>
 // int main(void)
