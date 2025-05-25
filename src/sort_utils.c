@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 02:16:32 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/25 05:00:42 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 01:55:17 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	search_index(int *array, int num, size_t size)
 
 void	coord_compression(int *array, size_t size)
 {
-	int 	*cpy;
+	int		*cpy;
 	size_t	i;
 
 	i = 0;
@@ -77,7 +77,7 @@ size_t	is_sorted(t_stack *stack)
 	current = stack->next;
 	while (current->next != stack)
 	{
-		if (current->index > current->next->index)
+		if (current->value > current->next->value)
 			return (0);
 		current = current->next;
 	}

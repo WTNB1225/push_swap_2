@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 02:24:22 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/25 02:24:23 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 01:19:09 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	*init_array(int argc, char **argv)
 	while (argv[i])
 	{
 		array[i] = ft_atoi(argv[i]);
-		i++;	
+		i++;
 	}
 	coord_compression(array, argc - 1);
 	return (array);
@@ -55,13 +55,14 @@ t_stack	*init_stack(int argc, int *array)
 		exit_error(array, NULL);
 	while (i < (size_t)argc - 1)
 	{
-		node = (t_stack*)malloc(sizeof(t_stack));
+		node = (t_stack *)malloc(sizeof(t_stack));
 		if (!node)
 		{
 			free_all(head);
 			exit_error(array, NULL);
 		}
-		node->index = array[i];
+		node->value = array[i];
+		node->index = i;
 		add_tail(head, node);
 		i++;
 	}

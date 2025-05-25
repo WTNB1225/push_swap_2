@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 07:10:25 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/25 07:10:26 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 01:51:27 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stack	*head_node(void)
 {
-	t_stack *head;
+	t_stack	*head;
 
 	head = (t_stack *)malloc(sizeof(t_stack));
 	if (!head)
@@ -22,6 +22,7 @@ t_stack	*head_node(void)
 	head->next = head;
 	head->prev = head;
 	head->index = 0;
+	head->value = 0;
 	return (head);
 }
 

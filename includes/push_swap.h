@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:21:13 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/25 06:26:50 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 01:32:27 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_stack
 	struct s_stack *prev;
 	struct s_stack *next;
 	int             index;
+	int				value;
 }   t_stack;
 
 void	exit_error(void *ptr, void *ptr2);
@@ -37,9 +38,11 @@ t_stack	*init_stack(int argc, int *array);
 size_t	get_stack_size(t_stack *t_stack);
 int		get_max_from_stack(t_stack *stack);
 int		get_min_from_stack(t_stack *stack);
+size_t	get_index(t_stack *t_stack, int value);
 
 size_t	is_sorted(t_stack *stack);
 void	sort_under_three(t_stack *stack_a);
+void	sort_under_five(t_stack *stack_a, t_stack *stack_b);
 
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);

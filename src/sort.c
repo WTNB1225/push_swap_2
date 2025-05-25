@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 05:01:21 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/25 05:01:21 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 01:56:28 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	sort_three(t_stack *stack)
 	int	b;
 	int	c;
 
-	a = stack->next->index;
-	b = stack->next->next->index;
-	c = stack->next->next->next->index;
+	a = stack->next->value;
+	b = stack->next->next->value;
+	c = stack->next->next->next->value;
 	if (a < b && c < b)
 	{
 		rra(stack);

@@ -6,7 +6,7 @@
 #    By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/25 00:26:00 by wyuki             #+#    #+#              #
-#    Updated: 2025/05/25 00:26:01 by wyuki            ###   ########.fr        #
+#    Updated: 2025/05/26 01:45:18 by wyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,18 +18,19 @@ NAME = push_swap
 SRC_PATH = src/
 INCS = -I ./includes/
 
-SRC = push_swap.c \
-	error.c \
-	validate_args.c \
+SRC = error.c \
 	init.c \
-	sort_utils.c \
-	stack_utils.c \
-	stack.c \
-	sort.c \
+	push.c \
 	reverse_rotate.c \
 	rotate.c \
-	push.c \
+	sort.c \
+	sort_utils.c \
+	sort_under_five.c \
+	stack.c \
+	stack_utils.c \
 	swap.c \
+	validate_args.c \
+	push_swap.c \
 
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
