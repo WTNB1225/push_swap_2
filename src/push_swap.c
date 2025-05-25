@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:17:58 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 01:56:03 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 02:27:18 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 	size = get_stack_size(stack_a);
 	if (size <= 3)
 		sort_under_three(stack_a);
-	else if (size <= 4)
+	else if (size <= 5)
 		sort_under_five(stack_a, stack_b);
 }
 

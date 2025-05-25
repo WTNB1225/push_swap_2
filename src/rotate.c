@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 06:02:48 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 01:06:23 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 03:48:47 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ static void	rotate(t_stack *stack)
 
 	move = stack->next;
 	last = stack->prev;
-	move->next->prev = stack;
 	stack->next = move->next;
+	stack->next->prev = stack;
 	move->prev = last;
 	move->next = stack;
 	last->next = move;
+	stack->prev = move;
 }
 
 void	ra(t_stack *stack_a)

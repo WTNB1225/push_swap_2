@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 02:10:17 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 01:07:45 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 03:01:38 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	swap(t_stack *stack)
 	stack_size = get_stack_size(stack);
 	if (stack_size <= 1)
 		return ;
-	tmp = stack->next->index;
-	stack->next->index = stack->next->next->index;
-	stack->next->next->index = tmp;
+	tmp = stack->next->value;
+	stack->next->value = stack->next->next->value;
+	stack->next->next->value = tmp;
 }
 
 void	sa(t_stack *stack_a)

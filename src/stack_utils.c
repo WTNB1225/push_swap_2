@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:12:28 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 02:10:26 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 02:57:56 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,15 @@ int	get_min_from_stack(t_stack *stack)
 size_t	get_index(t_stack *stack, int value)
 {
 	t_stack	*current;
+	size_t	i;
 
+	i = 0;
 	current = stack->next;
 	while (current != stack)
 	{
 		if (current->value == value)
-			return (current->index);
+			return (i);
+		i++;
 		current = current->next;
 	}
 	return (0);

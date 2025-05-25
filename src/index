@@ -1,0 +1,87 @@
+	array = (int *)malloc(sizeof(int) * argc - 1);
+	coord_compression(array, argc - 1);
+	while (i < (size_t)argc - 1)
+		node->value = array[i];
+	move = stack_b->next;
+	stack_b->next = move->next;
+	stack_b->next->prev = stack_b;
+	stack_a->next->prev = move;
+	move->next = stack_a->next;
+	move->prev = stack_a;
+	stack_a->next = move;
+	move = stack_a->next;
+	stack_a->next = move->next;
+	stack_a->next->prev = stack_a;
+	move->next = stack_b->next;
+	move->prev = stack_b;
+	stack_b->next->prev = move;
+	stack_b->next = move;
+	move = stack->prev;
+	move->prev->next = stack;
+	move->next = stack->next;
+	move->prev = stack;
+	stack->next->prev = move;
+	stack->next = move;
+	move = stack->next;
+	last = stack->prev;
+	move->next->prev = stack;
+	stack->next = move->next;
+	move->prev = last;
+	move->next = stack;
+	last->next = move;
+	a = stack->next->value;
+	b = stack->next->next->value;
+	c = stack->next->next->next->value;
+		while (j < size - i)
+	current = stack->next;
+	while (current->next != stack)
+		if (current->value > current->next->value)
+		current = current->next;
+	head->next = head;
+	head->prev = head;
+	head->value = 0;
+	while (tmp->next != head)
+		tmp = tmp->next;
+	node->prev = tmp;
+	node->next = head;
+	tmp->next = node;
+	head->prev = node;
+	tmp = head->next;
+		tmp = tmp->next;
+	current = stack->next;
+		current = current->next;
+	current = stack->next;
+		if (max < current->value)
+			max = current->value;
+		current = current->next;
+	current = stack->next;
+		if (min > current->value)
+			min = current->value;
+		current = current->next;
+	current = stack->next;
+		if (current->value == value)
+		current = current->next;
+// 	assert(stack->next == stack);
+// 	assert(stack->prev == stack);
+// 	assert(stack->value == 0);
+// 	assert(stack->value == 0);
+// 	node->value = 1;
+// 	node->value = 1;
+// 	assert(stack->next == node);
+// 	assert(stack->prev == node);
+// 	assert(stack->next->value == 1);
+// 	assert(stack->next->value == 1);
+// 	node->value = 2;
+// 	node->value = 2;
+// 	assert(stack->next->next == node);
+// 	assert(stack->prev == node);
+// 	assert(stack->next->next->value == 2);
+// 	assert(stack->next->next->value == 2);
+	tmp = stack->next->index;
+	stack->next->index = stack->next->next->index;
+	stack->next->next->index = tmp;
+	if (*str == '+' || *str == '-')
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			sign *= -1;
+			sum = sum * 10 + (str[i] - '0');

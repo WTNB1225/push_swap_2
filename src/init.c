@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 02:24:22 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 01:19:09 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 02:59:07 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ t_stack	*init_stack(int argc, int *array)
 			exit_error(array, NULL);
 		}
 		node->value = array[i];
-		node->index = i;
 		add_tail(head, node);
 		i++;
 	}

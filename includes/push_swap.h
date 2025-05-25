@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:21:13 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 01:32:27 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/26 02:57:04 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ typedef struct s_stack
 {
 	struct s_stack *prev;
 	struct s_stack *next;
-	int             index;
 	int				value;
 }   t_stack;
 
