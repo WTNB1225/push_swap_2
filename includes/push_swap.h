@@ -32,7 +32,9 @@ void	coord_compression(int *array, size_t size);
 t_stack	*head_node(void);
 void	add_tail(t_stack *head, t_stack *node);
 void	free_all(t_stack *head);
+t_stack	*pop(t_stack *stack);
 t_stack	*init_stack(int argc, int *array);
+void	push(t_stack *stack, t_stack *node);
 
 size_t	get_stack_size(t_stack *t_stack);
 int		get_max_from_stack(t_stack *stack);

@@ -15,16 +15,9 @@
 static void	rotate(t_stack *stack)
 {
 	t_stack	*move;
-	t_stack	*last;
 
-	move = stack->next;
-	last = stack->prev;
-	stack->next = move->next;
-	stack->next->prev = stack;
-	move->prev = last;
-	move->next = stack;
-	last->next = move;
-	stack->prev = move;
+	move = pop(stack);
+	add_tail(stack, move);
 }
 
 void	ra(t_stack *stack_a)

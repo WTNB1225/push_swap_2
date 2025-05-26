@@ -15,16 +15,13 @@
 static void	r_rotate(t_stack *stack)
 {
 	t_stack	*move;
-	t_stack	*before_last;
 
 	move = stack->prev;
-	before_last = move->prev;
-	before_last->next = stack;
-	stack->prev = before_last;
-	move->next = stack->next;
-	move->prev = stack;
-	stack->next->prev = move;
-	stack->next = move;
+	if (move == stack)
+		return ;
+	move->prev->next = stack;
+	stack->prev = move->prev;
+	push(stack, move);
 }
 
 void	rra(t_stack *stack_a)

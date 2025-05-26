@@ -56,3 +56,27 @@ void	free_all(t_stack *head)
 	}
 	free(head);
 }
+
+t_stack	*pop(t_stack *stack)
+{
+	t_stack *move;
+
+	if (stack->next == stack)
+		return (NULL);
+	move = stack->next;
+	stack->next = move->next;
+	move->next->prev = stack;
+	move->next = NULL;
+	move->prev = NULL;
+	return (move);
+}
+
+void	push(t_stack *stack, t_stack *node)
+{
+	if (node == NULL)
+		return ;
+	node->next = stack->next;
+	stack->next->prev = node;
+	node->prev = stack;
+	stack->next = node;
+}
