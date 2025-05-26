@@ -48,9 +48,9 @@ static long long int	ft_atolli(const char *str)
 		else
 			break ;
 		i++;
-		if (sign * sum > INT_MAX || sign * sum < INT_MIN)
-			return (__LONG_LONG_MAX__);
 	}
+	if (sign * sum > INT_MAX || sign * sum < INT_MIN)
+		return (__LONG_LONG_MAX__);
 	return (sum * sign);
 }
 

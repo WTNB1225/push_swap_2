@@ -38,10 +38,12 @@ size_t	get_stack_size(t_stack *t_stack);
 int		get_max_from_stack(t_stack *stack);
 int		get_min_from_stack(t_stack *stack);
 size_t	get_index(t_stack *t_stack, int value);
+void	print_stack(t_stack *stack);
 
 size_t	is_sorted(t_stack *stack);
 void	sort_under_three(t_stack *stack_a);
 void	sort_under_five(t_stack *stack_a, t_stack *stack_b);
+void	sort_over_six(t_stack *stack_a, t_stack *stack_b);
 
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);

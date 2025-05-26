@@ -23,6 +23,8 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		sort_under_three(stack_a);
 	else if (size <= 5)
 		sort_under_five(stack_a, stack_b);
+	else
+		sort_over_six(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -45,5 +47,6 @@ int	main(int argc, char **argv)
 	}
 	push_swap(stack_a, stack_b);
 	free(array);
+	// print_stack(stack_a);
 	return (0);
 }

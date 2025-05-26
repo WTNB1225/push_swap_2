@@ -78,6 +78,19 @@ size_t	get_index(t_stack *stack, int value)
 	return (0);
 }
 
+void	print_stack(t_stack *stack)
+{
+	t_stack *current;
+
+	current = stack->next;
+	while (current != stack)
+	{
+		printf("%d\n", current->value);
+		current = current->next;
+
+	}
+}
+
 // #include <assert.h>
 // int main(void)
 // {

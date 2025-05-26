@@ -21,7 +21,7 @@ t_stack	*head_node(void)
 		return (NULL);
 	head->next = head;
 	head->prev = head;
-	head->value = 0;
+	head->value = INT_MIN;
 	return (head);
 }
 
