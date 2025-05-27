@@ -52,30 +52,6 @@ void	sort_under_three(t_stack *stack)
 		sort_three(stack);
 }
 
-int	check_opposite(t_stack *stack)
-{
-	size_t	size;
-	size_t	count;
-	t_stack *current;
-	int	diff;
-
-	diff = 0;
-	count = 0;
-	size = get_stack_size(stack);
-	current = stack->next;
-	while (current->next != stack)
-	{
-		diff = current->value - current->next->value;
-		if (diff == 2 || diff == 3 || diff == 4)
-			count++;
-		current = current->next;
-	}
-	if (count * 10 >= size * 6)
-		return (1);
-	return (0);
-}
-
-
 void	pb_or_ra(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
@@ -86,7 +62,7 @@ void	pb_or_ra(t_stack *stack_a, t_stack *stack_b)
 	if (get_stack_size(stack_a) <= 100)
 		range = 13;
 	else
-		range = 37;
+		range = 32;
 	i = 0;
 	while ((size = get_stack_size(stack_a)) > 0)
 	{
@@ -102,8 +78,6 @@ void	pb_or_ra(t_stack *stack_a, t_stack *stack_b)
 			rb(stack_b);
 			i++;
 		}
-		else if (check_opposite(stack_a))
-			rra(stack_a);
 		else
 			ra(stack_a);
 	}
