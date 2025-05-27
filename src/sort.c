@@ -116,59 +116,6 @@ void	pa_sort(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-// void	big_sort(t_stack *stack_a, t_stack *stack_b, int range)
-// // {
-// 	int	i;
-
-// 	i = 0;
-// 	while (get_stack_size(stack_a) > 0)
-// 	{
-// 		if ((stack_a)->next->value <= i)
-// 		{
-// 			pb(stack_a, stack_b);
-// 			++i;
-// 		}
-// 		else if ((stack_a)->next->value <= i + range)
-// 		{
-// 			pb(stack_a, stack_b);
-// 			rb(stack_b);
-// 			++i;
-// 		}
-// 		else if (check_opposite(stack_a))
-// 			rra(stack_a);
-// 		else
-// 			ra(stack_a);
-// 	}
-// }
-
-// void	final_sort(t_stack *stack_a, t_stack *stack_b)
-// {
-// 	int	idx;
-// 	int max;
-// 	max = get_max_from_stack(stack_b);
-// 	while (get_stack_size(stack_b) > 0)
-// 	{
-// 		max = get_max_from_stack(stack_b);
-// 		if ((stack_b)->next->value== max)
-// 		{
-// 			pa(stack_a, stack_b);
-// 		}
-// 		else if ((stack_b)->next->next->value == max)
-// 		{
-// 			sb(stack_b);
-// 			pa(stack_a, stack_b);
-// 		}
-// 		else
-// 		{
-// 			idx = get_index(stack_b, max);
-// 			if (!best_move(stack_b, idx))
-// 				rrb(stack_b);
-// 			else
-// 				rb(stack_b);
-// 		}
-// 	}
-// }
-
 void	sort_over_six(t_stack *stack_a, t_stack *stack_b)
 {
 	pb_or_ra(stack_a, stack_b);

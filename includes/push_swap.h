@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+# include <stdbool.h>
 
 typedef struct s_stack
 {
@@ -21,6 +22,12 @@ typedef struct s_stack
 	struct s_stack *next;
 	int				value;
 }   t_stack;
+
+typedef struct s_op_stack
+{
+	struct s_op_stack 	*next;
+	char				*operation;
+}	t_op_stack;
 
 void	exit_error(void *ptr, void *ptr2);
 int		validate_args(int argc, char **argv);
