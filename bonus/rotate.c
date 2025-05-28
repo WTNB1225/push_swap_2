@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 21:52:42 by wyuki             #+#    #+#             */
-/*   Updated: 2025/04/30 21:59:41 by wyuki            ###   ########.fr       */
+/*   Created: 2025/05/25 06:02:48 by wyuki             #+#    #+#             */
+/*   Updated: 2025/05/29 02:52:12 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "push_swap_bonus.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+static void	rotate(t_stack *stack)
+{
+	t_stack	*move;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4096
-# endif
+	move = pop(stack);
+	add_tail(stack, move);
+}
 
-char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strdup(const char *s);
-#endif
+void	ra(t_stack *stack_a)
+{
+	rotate(stack_a);
+}
+
+void	rb(t_stack *stack_b)
+{
+	rotate(stack_b);
+}
+
+void	rr(t_stack *stack_a, t_stack *stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+}

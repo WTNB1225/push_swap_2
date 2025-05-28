@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 05:01:21 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 03:48:56 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/29 00:05:27 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,24 @@ void	sort_under_three(t_stack *stack)
 		sort_three(stack);
 }
 
-void	pb_or_ra(t_stack *stack_a, t_stack *stack_b)
+static void	all_pb(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
-	int	range;
-	size_t	size;
-	int		stack_idx;
+	int		i;
+	int		range;
 
 	if (get_stack_size(stack_a) <= 100)
 		range = 13;
 	else
 		range = 32;
 	i = 0;
-	while ((size = get_stack_size(stack_a)) > 0)
+	while (get_stack_size(stack_a) > 0)
 	{
-		stack_idx = stack_a->next->value;
-		if (stack_idx <= i)
+		if (stack_a->next->value <= i)
 		{
 			pb(stack_a, stack_b);
 			i++;
 		}
-		else if (stack_idx <= i + range)
+		else if (stack_a->next->value <= i + range)
 		{
 			pb(stack_a, stack_b);
 			rb(stack_b);
@@ -83,16 +80,13 @@ void	pb_or_ra(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	pa_sort(t_stack *stack_a, t_stack *stack_b)
+static void	all_pa(t_stack *stack_a, t_stack *stack_b)
 {
-	int	max;
+	int		max;
 	size_t	max_idx;
-	size_t	size;
-	size_t	i;
-	i = 0;
-	while ((size = get_stack_size(stack_b)) > 0)
+
+	while (get_stack_size(stack_b) > 0)
 	{
-		i = 0;
 		max = get_max_from_stack(stack_b);
 		if (stack_b->next->value == max)
 			pa(stack_a, stack_b);
@@ -104,21 +98,16 @@ void	pa_sort(t_stack *stack_a, t_stack *stack_b)
 		else
 		{
 			max_idx = get_index(stack_b, max);
-			if (max_idx <= size / 2)
-			{
+			if (max_idx <= get_stack_size(stack_b) / 2)
 				rb(stack_b);
-			}
 			else
-			{
 				rrb(stack_b);
-			}
 		}
 	}
 }
 
 void	sort_over_six(t_stack *stack_a, t_stack *stack_b)
 {
-	pb_or_ra(stack_a, stack_b);
-	pa_sort(stack_a, stack_b);
+	all_pb(stack_a, stack_b);
+	all_pa(stack_a, stack_b);
 }
-

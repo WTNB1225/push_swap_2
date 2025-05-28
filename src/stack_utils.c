@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:12:28 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 02:57:56 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/29 00:04:13 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,13 @@ size_t	get_index(t_stack *stack, int value)
 
 void	print_stack(t_stack *stack)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	current = stack->next;
 	while (current != stack)
 	{
-		printf("%d\n", current->value);
+		ft_printf("%d\n", current->value);
 		current = current->next;
-
 	}
 }
 

@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 00:48:05 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/25 00:48:06 by wyuki            ###   ########.fr       */
+/*   Created: 2025/05/25 06:16:10 by wyuki             #+#    #+#             */
+/*   Updated: 2025/05/29 02:51:59 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap_bonus.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+static void	r_rotate(t_stack *stack)
 {
-	size_t	i;
+	t_stack	*move;
 
-	i = 0;
-	while (s1[i] == s2[i] && s1[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	move = stack->prev;
+	if (move == stack)
+		return ;
+	move->prev->next = stack;
+	stack->prev = move->prev;
+	push(stack, move);
+}
+
+void	rra(t_stack *stack_a)
+{
+	r_rotate(stack_a);
+}
+
+void	rrb(t_stack *stack_b)
+{
+	r_rotate(stack_b);
+}
+
+void	rrr(t_stack *stack_a, t_stack *stack_b)
+{
+	r_rotate(stack_a);
+	r_rotate(stack_b);
 }

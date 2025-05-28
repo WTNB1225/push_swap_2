@@ -6,27 +6,28 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:18:33 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/27 22:53:58 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/29 02:43:39 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	is_command(char *line)
+int	is_command(const char *line)
 {
-	const char	**commands = {"sa", "sb", "ss", "ra", "rb", "rr", "rra", "rrb", "rrr", "pa", "pb"};
+	const char	*commands[] = {"sa", "sb", "ss", "ra", "rb", "rr",
+		"rra", "rrb", "rrr", "pa", "pb"};
 	size_t		command_num;
 	size_t		i;
 
 	command_num = 11;
 	i = 0;
-	while (i < commands)
+	while (i < command_num)
 	{
 		if (ft_strcmp(line, commands[i]) == 0)
-			return (true);
+			return (1);
 		i++;
 	}
-	return (false);
+	return (0);
 }
 
 void	do_operation(char *line, t_stack *stack_a, t_stack *stack_b)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 22:00:34 by wyuki             #+#    #+#             */
-/*   Updated: 2025/04/30 22:28:51 by wyuki            ###   ########.fr       */
+/*   Created: 2025/05/11 23:54:20 by wyuki             #+#    #+#             */
+/*   Updated: 2025/05/28 23:35:54 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 size_t	ft_strlen(const char *s)
 {
-	const char	*ostr = s;
+	size_t	i;
 
-	while (*s)
-		s++;
-	return (s - ostr);
+	i = 0;
+	while (s != NULL && s[i])
+		i++;
+	return (i);
 }
 
 char	*ft_strchr(const char *s, int c)
@@ -36,16 +37,19 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*ptr;
 	size_t	i;
 	size_t	j;
 
 	if (s1 == NULL)
-		s1 = ft_strdup("");
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
+	{
+		s1 = (char *)malloc(sizeof(char) * 1);
+		if (s1 == NULL)
+			return (NULL);
+		s1[0] = '\0';
+	}
 	ptr = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	i = 0;
 	j = 0;
@@ -90,22 +94,23 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ptr);
 }
 
-char	*ft_strdup(const char *s)
+t_fd_node	*get_fd_node(t_fd_node **head, int fd)
 {
-	size_t	len;
-	size_t	i;
-	char	*ptr;
+	t_fd_node	*tmp;
 
-	len = ft_strlen(s);
-	i = 0;
-	ptr = (char *)malloc(sizeof(char) * (len + 1));
-	if (ptr == NULL)
-		return (NULL);
-	while (s[i])
+	tmp = *head;
+	while (tmp)
 	{
-		ptr[i] = s[i];
-		i++;
+		if (tmp->fd == fd)
+			return (tmp);
+		tmp = tmp->next;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	tmp = malloc(sizeof(t_fd_node));
+	if (tmp == NULL)
+		return (NULL);
+	tmp->fd = fd;
+	tmp->backup = NULL;
+	tmp->next = *head;
+	*head = tmp;
+	return (tmp);
 }

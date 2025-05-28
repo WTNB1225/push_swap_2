@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:17:58 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 02:27:18 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/29 01:26:53 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main(int argc, char **argv)
 	}
 	push_swap(stack_a, stack_b);
 	free(array);
-	// print_stack(stack_a);
+	free_all(stack_a);
+	free_all(stack_b);
 	return (0);
 }

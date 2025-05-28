@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 07:10:25 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 02:57:26 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/29 00:05:49 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	free_all(t_stack *head)
 
 t_stack	*pop(t_stack *stack)
 {
-	t_stack *move;
+	t_stack	*move;
 
 	if (stack->next == stack)
 		return (NULL);

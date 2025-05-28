@@ -6,7 +6,7 @@
 #    By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/25 00:26:00 by wyuki             #+#    #+#              #
-#    Updated: 2025/05/26 01:45:18 by wyuki            ###   ########.fr        #
+#    Updated: 2025/05/29 02:55:05 by wyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
 
 SRC_PATH = src/
+
 INCS = -I ./includes/
 
 SRC = error.c \
@@ -30,17 +31,32 @@ SRC = error.c \
 	stack_utils.c \
 	swap.c \
 	validate_args.c \
+	utils.c \
 	push_swap.c \
 
+BONUS_SRC = error.c \
+	init.c \
+	sort.c \
+	sort_utils.c \
+	sort_under_five.c \
+	stack.c \
+	stack_utils.c \
+	utils.c \
+	validate_args.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
+BONUS_SRCS = $(addprefix $(SRC_PATH), $(BONUS_SRC))
 
-.PHONY: all clean fclean re
+BONUS_SRCS += bonus/checker.c bonus/utils.c bonus/swap.c \
+			  bonus/rotate.c bonus/reverse_rotate.c \
+			  bonus/push.c
 
-$(NAME):
-	make -C ./libft re
-	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(INCS) -L ./libft -lft
+.PHONY: all clean fclean re bonus
+
+$(NAME): $(SRCS)
+	make -C ./libft
+	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(INCS) -L libft -lft
 
 all: $(NAME)
 
@@ -49,6 +65,10 @@ clean:
 
 fclean: clean
 	make -C ./libft fclean
-	rm -r $(NAME)
+	rm -r $(NAME) checker
+
+bonus: $(BONUS_SRCS)
+	make -C ./libft
+	$(CC) $(CFLAGS) -o checker $(BONUS_SRCS) $(INCS) -L libft -lft
 
 re: fclean all

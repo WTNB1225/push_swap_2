@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+static size_t	ft_isspace(char c)
+{
+	if (c == '\n' || c == '\t' || c == '\v' || c == '\r'
+		|| c == '\f' || c == ' ')
+		return (1);
+	return (0);
+}
+
 static size_t	str_is_num(char c)
 {
 	if (c >= '0' && c <= '9')

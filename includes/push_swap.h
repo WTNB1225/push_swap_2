@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:21:13 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 02:57:04 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/05/28 23:55:07 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ size_t	is_sorted(t_stack *stack);
 void	sort_under_three(t_stack *stack_a);
 void	sort_under_five(t_stack *stack_a, t_stack *stack_b);
 void	sort_over_six(t_stack *stack_a, t_stack *stack_b);
+
+int		ft_isspace(char c);
+int		ft_strcmp(const char *s1, const char *s2);
 
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);

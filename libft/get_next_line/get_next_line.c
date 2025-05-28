@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/30 21:56:33 by wyuki             #+#    #+#             */
-/*   Updated: 2025/04/30 21:59:48 by wyuki            ###   ########.fr       */
+/*   Created: 2025/05/11 23:52:53 by wyuki             #+#    #+#             */
+/*   Updated: 2025/05/28 23:35:45 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ static char	*read_file(int fd, char *backup)
 	if (buf == NULL)
 	{
 		free(backup);
-		backup = NULL;
 		return (NULL);
 	}
 	while (read_rtn != 0 && !ft_strchr(backup, '\n'))
@@ -74,37 +73,100 @@ static char	*read_file(int fd, char *backup)
 	return (backup);
 }
 
+static void	remove_fd_node(t_fd_node **head, int fd)
+{
+	t_fd_node	*current;
+	t_fd_node	*prev;
+
+	current = *head;
+	prev = NULL;
+	while (current)
+	{
+		if (current->fd == fd)
+		{
+			if (prev)
+				prev->next = current->next;
+			else
+				*head = current->next;
+			free(current->backup);
+			current->backup = NULL;
+			free(current);
+			return ;
+		}
+		prev = current;
+		current = current->next;
+	}
+}
+
 char	*get_next_line(int fd)
 {
-	static char	*backup;
-	char		*line;
+	static t_fd_node	*head;
+	t_fd_node			*current;
+	char				*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	backup = read_file(fd, backup);
-	line = extract_line(backup);
+	current = get_fd_node(&head, fd);
+	if (current == NULL)
+		return (NULL);
+	current->backup = read_file(fd, current->backup);
+	line = extract_line(current->backup);
 	if (line == NULL || line[0] == '\0')
 	{
-		free(backup);
-		backup = NULL;
+		free(line);
+		remove_fd_node(&head, fd);
 		return (NULL);
 	}
-	backup = make_new_backup(backup);
+	current->backup = make_new_backup(current->backup);
 	return (line);
 }
 
 // #include <stdio.h>
 // #include <fcntl.h>
+// #include <stdlib.h>
+// #include <unistd.h>
 
-// int main(void)
+// #define FILE_COUNT 3
+
+// int	main(void)
 // {
-// 	char	*line;
-// 	//int		fd;
+// 	const char	*files[FILE_COUNT] = {"test.txt", "test2.txt", "test3.txt"};
+// 	int			fds[FILE_COUNT];
+// 	char		*line;
+// 	int			i = 0;
+// 	int			j = 0;
 
-// 	//fd = open("test.txt", O_RDONLY);
-// 	while ((line = get_next_line(0)) != NULL)
+// 	while (i < FILE_COUNT)
 // 	{
-// 		printf("%s\n", line);
-// 		free(line);
+// 		fds[i] = open(files[i], O_RDONLY);
+// 		if (fds[i] < 0)
+// 		{
+// 			perror("open");
+// 			return (1);
+// 		}
+// 		i++;
 // 	}
+// 	while (j < 100)
+// 	{
+// 		i = 0;
+// 		while (i < FILE_COUNT)
+// 		{
+// 			line = get_next_line(fds[i]);
+// 			if (line)
+// 			{
+// 				printf("fd%d (%s): %s", fds[i], files[i], line);
+// 				free(line);
+// 			}
+// 			i++;
+// 		}
+// 		j++;
+// 	}
+// 	i = 0;
+// 	while (i < FILE_COUNT)
+// 	{
+// 		close(fds[i]);
+// 		i++;
+// 	}
+
+// 	return (0);
 // }

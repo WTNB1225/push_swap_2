@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/25 00:37:03 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/25 00:37:09 by wyuki            ###   ########.fr       */
+/*   Created: 2025/05/25 02:08:45 by wyuki             #+#    #+#             */
+/*   Updated: 2025/05/29 02:51:44 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap_bonus.h"
 
-size_t	ft_isspace(char c)
+void	pa(t_stack *stack_a, t_stack *stack_b)
 {
-	if (c == '\n' || c == '\t' || c == '\v' || c == '\r'
-		|| c == '\f' || c == ' ')
-		return (1);
-	return (0);
+	t_stack	*move;
+
+	if (stack_b->next == stack_b)
+		return ;
+	move = pop(stack_b);
+	push(stack_a, move);
+}
+
+void	pb(t_stack *stack_a, t_stack *stack_b)
+{
+	t_stack	*move;
+
+	if (stack_a->next == stack_a)
+		return ;
+	move = pop(stack_a);
+	push(stack_b, move);
 }
