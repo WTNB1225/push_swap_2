@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_under_five.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 01:11:02 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/29 01:33:23 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 02:25:36 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	pb_max_value(t_stack *stack_a, size_t max_idx)
 			ra(stack_a);
 	}
 	else
-			rra(stack_a);
+		rra(stack_a);
 }
 
 static void	pb_and_all_pa(t_stack *stack_a, t_stack *stack_b)

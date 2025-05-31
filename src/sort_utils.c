@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 02:16:32 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 01:55:17 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 02:27:13 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	coord_compression(int *array, size_t size)
 	i = 0;
 	cpy = (int *)malloc(sizeof(int) * size);
 	if (!cpy)
-		exit_error(array, NULL);
+		exit_error(NULL, NULL, array);
 	ft_memcpy(cpy, array, sizeof(int) * size);
 	sort(cpy, size);
 	while (i < size)

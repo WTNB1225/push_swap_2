@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:21:13 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/28 23:55:07 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 02:35:28 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
@@ -18,18 +18,18 @@
 
 typedef struct s_stack
 {
-	struct s_stack *prev;
-	struct s_stack *next;
+	struct s_stack	*prev;
+	struct s_stack	*next;
 	int				value;
-}   t_stack;
+}	t_stack;
 
 typedef struct s_op_stack
 {
-	struct s_op_stack 	*next;
+	struct s_op_stack	*next;
 	char				*operation;
 }	t_op_stack;
 
-void	exit_error(void *ptr, void *ptr2);
+void	exit_error(t_stack *stack_a, t_stack *stack_b, void *ptr);
 int		validate_args(int argc, char **argv);
 
 void	print_array(int *array, size_t size);

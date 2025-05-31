@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 03:12:28 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/29 00:04:13 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 02:25:11 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,31 +89,3 @@ void	print_stack(t_stack *stack)
 		current = current->next;
 	}
 }
-
-// #include <assert.h>
-// int main(void)
-// {
-// 	t_stack *stack;
-// 	t_stack *node;
-// 	stack = head_node();
-// 	assert(stack->next == stack);
-// 	assert(stack->prev == stack);
-// 	assert(stack->value == 0);
-// 	assert(stack->value == 0);
-// 	node = malloc(sizeof(t_stack));
-// 	node->value = 1;
-// 	node->value = 1;
-// 	add_tail(stack, node);
-// 	assert(stack->next == node);
-// 	assert(stack->prev == node);
-// 	assert(stack->next->value == 1);
-// 	assert(stack->next->value == 1);
-// 	node = malloc(sizeof(t_stack));
-// 	node->value = 2;
-// 	node->value = 2;
-// 	add_tail(stack, node);
-// 	assert(stack->next->next == node);
-// 	assert(stack->prev == node);
-// 	assert(stack->next->next->value == 2);
-// 	assert(stack->next->next->value == 2);
-// }

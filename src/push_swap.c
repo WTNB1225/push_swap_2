@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:17:58 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/29 01:26:53 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 02:26:53 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,12 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 
 	if (!validate_args(argc, argv))
-		exit_error(NULL, NULL);
+		exit_error(NULL, NULL, NULL);
 	array = init_array(argc, argv);
-	if (!array)
-		exit_error(NULL, NULL);
 	stack_a = init_stack(argc, array);
 	stack_b = head_node();
 	if (!stack_b)
-	{
-		free_all(stack_a);
-		exit_error(array, NULL);
-	}
+		exit_error(stack_a, NULL, array);
 	push_swap(stack_a, stack_b);
 	free(array);
 	free_all(stack_a);

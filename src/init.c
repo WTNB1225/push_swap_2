@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 02:24:22 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/26 02:59:07 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 02:27:40 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	*init_array(int argc, char **argv)
 
 	array = (int *)malloc(sizeof(int) * argc - 1);
 	if (!array)
-		return (NULL);
+		exit_error(NULL, NULL, NULL);
 	i = 0;
 	argv++;
 	while (argv[i])
@@ -52,15 +52,12 @@ t_stack	*init_stack(int argc, int *array)
 	i = 0;
 	head = head_node();
 	if (!head)
-		exit_error(array, NULL);
+		exit_error(NULL, NULL, array);
 	while (i < (size_t)argc - 1)
 	{
 		node = (t_stack *)malloc(sizeof(t_stack));
 		if (!node)
-		{
-			free_all(head);
-			exit_error(array, NULL);
-		}
+			exit_error(head, NULL, array);
 		node->value = array[i];
 		add_tail(head, node);
 		i++;
