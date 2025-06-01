@@ -6,13 +6,13 @@
 /*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:17:58 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/01 02:26:53 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 21:29:33 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_stack *stack_a, t_stack *stack_b)
+static void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	size_t	size;
 
@@ -27,12 +27,27 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		sort_over_six(stack_a, stack_b);
 }
 
+static char	**set_new_arg(int *argc, char **argv)
+{
+	argv = ft_split(argv[1], ' ');
+	argv = append_argv(argv);
+	*argc = get_new_argc(argv);
+	return (argv);
+}
+
 int	main(int argc, char **argv)
 {
 	int		*array;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		flag;
 
+	flag = 0;
+	if (argc == 2)
+	{
+		argv = set_new_arg(&argc, argv);
+		flag = 1;
+	}
 	if (!validate_args(argc, argv))
 		exit_error(NULL, NULL, NULL);
 	array = init_array(argc, argv);
@@ -44,5 +59,7 @@ int	main(int argc, char **argv)
 	free(array);
 	free_all(stack_a);
 	free_all(stack_b);
+	if (flag == 1)
+		free_double_ptr(argv);
 	return (0);
 }

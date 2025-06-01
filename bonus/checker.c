@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 19:27:48 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/01 17:52:00 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 22:23:48 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,26 @@ static char	*one_line_operation(t_stack *stack_a, t_stack *stack_b, int *array,
 	return (line);
 }
 
+static char	**set_new_arg(int *argc, char **argv, int *flag)
+{
+	argv = ft_split(argv[1], ' ');
+	argv = append_argv(argv);
+	*argc = get_new_argc(argv);
+	*flag = 1;
+	return (argv);
+}
+
 int	main(int argc, char **argv)
 {
 	int		*array;
 	char	*line;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		flag;
 
+	flag = 0;
+	if (argc == 2)
+		argv = set_new_arg(&argc, argv, &flag);
 	if (!validate_args(argc, argv))
 		exit_error(NULL, NULL, NULL);
 	array = init_array(argc, argv);
@@ -59,10 +72,9 @@ int	main(int argc, char **argv)
 	line = get_next_line(0);
 	while (line)
 		line = one_line_operation(stack_a, stack_b, array, line);
-	if (is_sorted(stack_a) && get_stack_size(stack_b) == 0)
-		ft_putstr_fd("OK\n", 1);
-	else
-		ft_putstr_fd("KO\n", 1);
+	print_result(stack_a, stack_b);
+	if (flag == 1)
+		free_double_ptr(argv);
 	free_all_memory(stack_a, stack_b, array, NULL);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 00:21:13 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/01 02:35:28 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 21:10:06 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_op_stack
 
 void	exit_error(t_stack *stack_a, t_stack *stack_b, void *ptr);
 int		validate_args(int argc, char **argv);
+void	free_double_ptr(char **ptr);
 
 void	print_array(int *array, size_t size);
 int		*init_array(int argc, char **argv);
@@ -56,6 +57,9 @@ void	sort_over_six(t_stack *stack_a, t_stack *stack_b);
 
 int		ft_isspace(char c);
 int		ft_strcmp(const char *s1, const char *s2);
+
+char	**append_argv(char **argv);
+int		get_new_argc(char **argv);
 
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);

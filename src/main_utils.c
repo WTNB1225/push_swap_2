@@ -1,43 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   main_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 23:50:19 by wyuki             #+#    #+#             */
-/*   Updated: 2025/06/01 19:08:48 by wyuki            ###   ########.fr       */
+/*   Created: 2025/06/01 21:08:09 by wyuki             #+#    #+#             */
+/*   Updated: 2025/06/01 21:09:00 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isspace(char c)
-{
-	if (c == ' ' || (c >= 9 && c <= 13))
-		return (1);
-	return (0);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
+char	**append_argv(char **argv)
 {
 	size_t	i;
+	size_t	len;
+	char	**new_argv;
 
 	i = 0;
-	while (s1[i] == s2[i] && s1[i])
+	while (argv[i])
 		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
-
-void	free_double_ptr(char **ptr)
-{
-	size_t	i;
-
-	i = 0;
-	while (ptr[i])
+	new_argv = (char **)malloc(sizeof(char *) * (i + 2));
+	if (!new_argv)
 	{
-		free(ptr[i]);
+		free_double_ptr(argv);
+		exit_error(NULL, NULL, NULL);
+	}
+	len = i + 1;
+	i = 1;
+	new_argv[0] = ft_strdup("./push_swap");
+	while (i < len)
+	{
+		new_argv[i] = ft_strdup(argv[i - 1]);
 		i++;
 	}
-	free(ptr);
+	new_argv[i] = NULL;
+	free_double_ptr(argv);
+	return (new_argv);
+}
+
+int	get_new_argc(char **argv)
+{
+	size_t	i;
+
+	i = 0;
+	while (argv[i])
+		i++;
+	return (i);
 }

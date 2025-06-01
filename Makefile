@@ -6,7 +6,7 @@
 #    By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/25 00:26:00 by wyuki             #+#    #+#              #
-#    Updated: 2025/05/29 02:55:05 by wyuki            ###   ########.fr        #
+#    Updated: 2025/06/01 22:25:16 by wyuki            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = error.c \
 	validate_args.c \
 	utils.c \
 	push_swap.c \
+	main_utils.c \
 
 BONUS_SRC = error.c \
 	init.c \
@@ -43,6 +44,7 @@ BONUS_SRC = error.c \
 	stack_utils.c \
 	utils.c \
 	validate_args.c \
+	main_utils.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
@@ -50,7 +52,7 @@ BONUS_SRCS = $(addprefix $(SRC_PATH), $(BONUS_SRC))
 
 BONUS_SRCS += bonus/checker.c bonus/utils.c bonus/swap.c \
 			  bonus/rotate.c bonus/reverse_rotate.c \
-			  bonus/push.c
+			  bonus/push.c bonus/print_result.c \
 
 .PHONY: all clean fclean re bonus
 
