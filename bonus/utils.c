@@ -6,7 +6,7 @@
 /*   By: wyuki <wyuki@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 22:18:33 by wyuki             #+#    #+#             */
-/*   Updated: 2025/05/29 02:43:39 by wyuki            ###   ########.fr       */
+/*   Updated: 2025/06/01 18:00:22 by wyuki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	do_operation(char *line, t_stack *stack_a, t_stack *stack_b)
 	else if (!ft_strcmp(line, "rrr"))
 		rrr(stack_a, stack_b);
 	else if (!ft_strcmp(line, "pa"))
-		pa(stack_a, stack_a);
+		pa(stack_a, stack_b);
 	else if (!ft_strcmp(line, "pb"))
 		pb(stack_a, stack_b);
 }
