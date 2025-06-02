@@ -41,3 +41,9 @@ void	free_double_ptr(char **ptr)
 	}
 	free(ptr);
 }
+
+void	free_all_stack(t_stack *stack_a, t_stack *stack_b)
+{
+	free_all(stack_a);
+	free_all(stack_b);
+}

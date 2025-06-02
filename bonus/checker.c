@@ -60,6 +60,8 @@ int	main(int argc, char **argv)
 	int		flag;
 
 	flag = 0;
+	if (argc == 1)
+		return (0);
 	if (argc == 2)
 		argv = set_new_arg(&argc, argv, &flag);
 	if (!validate_args(argc, argv))
@@ -75,6 +77,5 @@ int	main(int argc, char **argv)
 	print_result(stack_a, stack_b);
 	if (flag == 1)
 		free_double_ptr(argv);
-	free_all_memory(stack_a, stack_b, array, NULL);
-	return (0);
+	return (free_all_memory(stack_a, stack_b, array, NULL), 0);
 }

@@ -32,6 +32,7 @@ typedef struct s_op_stack
 void	exit_error(t_stack *stack_a, t_stack *stack_b, void *ptr);
 int		validate_args(int argc, char **argv);
 void	free_double_ptr(char **ptr);
+void	free_all_stack(t_stack *stack_a, t_stack *stack_b);
 
 void	print_array(int *array, size_t size);
 int		*init_array(int argc, char **argv);

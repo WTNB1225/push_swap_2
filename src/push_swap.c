@@ -27,11 +27,12 @@ static void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		sort_over_six(stack_a, stack_b);
 }
 
-static char	**set_new_arg(int *argc, char **argv)
+static char	**set_new_arg(int *argc, char **argv, int *flag)
 {
 	argv = ft_split(argv[1], ' ');
 	argv = append_argv(argv);
 	*argc = get_new_argc(argv);
+	*flag = 1;
 	return (argv);
 }
 
@@ -43,11 +44,10 @@ int	main(int argc, char **argv)
 	int		flag;
 
 	flag = 0;
+	if (argc == 1)
+		return (0);
 	if (argc == 2)
-	{
-		argv = set_new_arg(&argc, argv);
-		flag = 1;
-	}
+		argv = set_new_arg(&argc, argv, &flag);
 	if (!validate_args(argc, argv))
 		exit_error(NULL, NULL, NULL);
 	array = init_array(argc, argv);
@@ -57,8 +57,7 @@ int	main(int argc, char **argv)
 		exit_error(stack_a, NULL, array);
 	push_swap(stack_a, stack_b);
 	free(array);
-	free_all(stack_a);
-	free_all(stack_b);
+	free_all_stack(stack_a, stack_b);
 	if (flag == 1)
 		free_double_ptr(argv);
 	return (0);
